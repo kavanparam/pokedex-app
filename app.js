@@ -33,6 +33,24 @@ function displayPokemon(obj){
     //Additional Views
     //Load the section with visibility none on search button click
     document.getElementById("views-container").style.display = "block";
+
+    // for(img in obj.sprites){
+    //     console.log(img);
+    //     console.log(Object.keys(img));
+    // }
+
+    //How can I iterate through sprite array and grab the image if it exists?
+
+    //Manually fetching the sprtites
+    document.getElementById('image2').src = obj.sprites.back_default;
+    document.getElementById('image3').src = obj.sprites.back_female;
+    document.getElementById('image4').src = obj.sprites.back_shiny;
+    document.getElementById('image5').src = obj.sprites.back_shiny_female;
+    document.getElementById('image6').src = obj.sprites.front_default;
+    document.getElementById('image7').src = obj.sprites.front_female;
+    document.getElementById('image8').src = obj.sprites.front_shiny;
+    document.getElementById('image9').src = obj.sprites.front_shiny_female;
+
 }
 
 function fetchPokemon(){
