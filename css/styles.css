@@ -1,4 +1,55 @@
 *{
     /* border: 1px solid brown; */
 }
+body{
+    font-family: serif;
+    font-size: x-large;
+    background-color: goldenrod;
+}
 
+h1, h2, h3{
+    text-align: center;
+    font-family: monospace;
+    text-transform: capitalize;
+}
+
+.search-bar{
+    display: flex;
+    justify-content: flex-end;
+
+}
+    .search-bar > button{
+        margin-left: 5px;
+    }
+
+.main-container{
+    padding-bottom: 50px;
+}
+
+    .main-container img{
+        height: 175px;
+        padding-left: 50px;
+    }
+
+    #move-list{
+        text-transform: capitalize;
+    }
+
+
+.flex-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* padding-right: 250px; */
+}
+
+#views-container{
+    display: none;
+}
+
+#icon{
+    height: 90px;
+    position: fixed;
+    bottom: 8px;
+    right: 8px;
+}

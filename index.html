@@ -5,12 +5,27 @@
     <link rel="stylesheet" href="css/styles.css">
     <script src="app.js"></script>
 </head>
-<body onload="start()">
+<body>
+    
+    <div class="search-bar">
+        <input type="text"id="search-bar"/>
+        <button onclick="fetchPokemon()">Search</button>
+    </div>
 
-	<h1 id="name">Pokemon Name</h1>
-    <img id="image" src=""/>
+    <div class="main-container">
+        <h1 id="name">Search for a Pokemon!</h1>
+        <div class="flex-center">
+            <ul id="move-list"></ul>
+            <img id="image" src=""/>
+        </div>
+    </div>
 
-    <ul id="move-list"></ul>
+    <section id="views-container">
+        <h3>Additional Views</h3>
+        <div class="flex-center"></div>
+    </section>
+
+    <img id="icon" src="images/pokedex.webp"/>
 
 </body>
 </html>
