@@ -19,8 +19,9 @@ h1, h2, h3{
     justify-content: flex-end;
 
 }
+
     .search-bar > button{
-        margin-left: 5px;
+        margin-left: 3px;
     }
 
 
@@ -30,20 +31,30 @@ h1, h2, h3{
 
     .main-container img{
         height: 200px;
-        padding-left: 60px;
+        padding-left: 5%;
     }
 
     #move-list{
         text-transform: capitalize;
     }
 
+    #full-move-list{
+        display: none;
+        font-size: small;
+    }
+
+    #full-move-list li{
+        display: inline;
+    }
+
     #main-flex{
         display: none;
-        background-color: darkslategrey;
+        background-color: rgba(0, 0, 0, 0.5);
         color: rgba(255, 255, 255, 0.8);
         font-size: large;
         border-radius: 8px;
-        margin: 0 200px;
+        margin: 0 10%;
+        overflow: scroll;
     }
 
 
@@ -51,17 +62,23 @@ h1, h2, h3{
     display: flex;
     justify-content: center;
     align-items: center;
-    /* padding-right: 250px; */
 }
+
+/* .flex-col{
+    display: flex;
+    flex-direction: column;
+} */
 
 
 #views-container{
     display: none;
+    padding-bottom: 150px;
 }
 
 #icon{
-    height: 60px;
+    height: 100px;
     position: fixed;
     bottom: 8px;
     right: 8px;
+    opacity: 0.8;
 }

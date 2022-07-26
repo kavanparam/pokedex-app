@@ -15,9 +15,8 @@ function start(){
 
 //Receives the JSON obj coming from PokeAPI
 function fetchPokemon(){
-    const searchTerm = document.getElementById("search-bar").value;
-
     const requestURL = "https://pokeapi.co/api/v2/pokemon/";
+    const searchTerm = document.getElementById("search-bar").value.toLowerCase();
 
     fetch(requestURL+searchTerm).then((x) => x.json()).then((obj) => {
         displayPokemon(obj);
@@ -45,10 +44,16 @@ function displayPokemon(obj){
         //Display the first 10 moves
         for(let i=0; i<10; i++)
             moveList += `<li>${obj.moves[i].move.name}</li>`;
-        // moveList += "<li onclick='fullMoveList()'>...</li>";
-        // fullMoveList(pokeObj);
 
-        moveList += "<li id='show-full-list' onclick='fullMoveList()'>...</li>";
+        moveList += "<li><button id='show-full-list' onclick='fullMoveList()' style='opacity:0.9'> ... </button></li>"; //Prompt to show full move list
+
+        let fullMoveList = "";
+        for(let i=10; i<Object.keys(obj.moves).length; i++){    //Hidden full-move-list that shows up on prompt click
+            fullMoveList += `<li>${obj.moves[i].move.name}, </li>`;
+        }
+        document.getElementById("full-move-list").innerHTML = fullMoveList;
+        
+
         // document.getElementById("show-full-list").addEventListener("click", fullMoveList);
 
     }
@@ -56,7 +61,7 @@ function displayPokemon(obj){
     else{
         //Display all moves
         for(i in obj.moves){
-            moveList += `<li>${obj.moves[i].move.name}</li`;
+            moveList += `<li>${obj.moves[i].move.name}</li>`;
         }
     }
     document.getElementById("move-list").innerHTML = moveList;
@@ -77,8 +82,10 @@ function displayPokemon(obj){
 //How to display full move list of the current pokemon object?
 function fullMoveList(){
 
-    console.log(obj.moves[0].move.name);
-
+    document.getElementById("full-move-list").style.display = "block";
+    
+    // console.log(obj.moves[0].move.name);
+    
 
     // document.getElementById("move-list").innerHTML = "";
     // let moveList = "";
