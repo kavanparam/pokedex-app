@@ -29,6 +29,10 @@ h1, h2, h3{
     padding-bottom: 50px;
 }
 
+    .main-container h2{
+        text-decoration: underline;
+    }
+
     .main-container img{
         height: 200px;
         padding-left: 5%;
@@ -36,6 +40,7 @@ h1, h2, h3{
 
     #move-list{
         text-transform: capitalize;
+        margin-top: 0;
     }
 
     #full-move-list{
@@ -53,7 +58,7 @@ h1, h2, h3{
         color: rgba(255, 255, 255, 0.8);
         font-size: large;
         border-radius: 8px;
-        margin: 0 10%;
+        margin: 0 5%;
         overflow: scroll;
     }
 
@@ -64,10 +69,10 @@ h1, h2, h3{
     align-items: center;
 }
 
-/* .flex-col{
+.flex-col{
     display: flex;
     flex-direction: column;
-} */
+}
 
 
 #views-container{
