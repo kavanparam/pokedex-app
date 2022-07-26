@@ -1,6 +1,7 @@
 *{
     /* border: 1px solid brown; */
 }
+
 body{
     font-family: serif;
     font-size: x-large;
@@ -22,17 +23,27 @@ h1, h2, h3{
         margin-left: 5px;
     }
 
+
 .main-container{
     padding-bottom: 50px;
 }
 
     .main-container img{
-        height: 175px;
-        padding-left: 50px;
+        height: 200px;
+        padding-left: 60px;
     }
 
     #move-list{
         text-transform: capitalize;
+    }
+
+    #main-flex{
+        display: none;
+        background-color: darkslategrey;
+        color: rgba(255, 255, 255, 0.8);
+        font-size: large;
+        border-radius: 8px;
+        margin: 0 200px;
     }
 
 
@@ -43,12 +54,13 @@ h1, h2, h3{
     /* padding-right: 250px; */
 }
 
+
 #views-container{
     display: none;
 }
 
 #icon{
-    height: 90px;
+    height: 60px;
     position: fixed;
     bottom: 8px;
     right: 8px;

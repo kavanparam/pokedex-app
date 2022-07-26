@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+    
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,16 +10,17 @@
     <link rel="stylesheet" href="css/styles.css">
     <script src="app.js"></script>
 </head>
-<body>
-    
+
+<body onload="start()">
+
     <div class="search-bar">
-        <input type="text"id="search-bar"/>
-        <button onclick="fetchPokemon()">Search</button>
+        <input type="text" id="search-bar" placeholder="Search for Pokemon.."/>
+        <button id="search-button" onclick="fetchPokemon()">Go</button>
     </div>
 
     <div class="main-container">
         <h1 id="name">Search for a Pokemon!</h1>
-        <div class="flex-center">
+        <div id="main-flex" class="flex-center">
             <ul id="move-list"></ul>
             <img id="image" src=""/>
         </div>
@@ -26,16 +28,7 @@
 
     <section id="views-container">
         <h3>Additional Views</h3>
-        <div id="image-flex" class="flex-center">
-            <img id="image2" src=""/>
-            <img id="image3" src=""/>
-            <img id="image4" src=""/>
-            <img id="image5" src=""/>
-            <img id="image6" src=""/>
-            <img id="image7" src=""/>
-            <img id="image8" src=""/>
-            <img id="image9" src=""/>
-        </div>
+        <div id="image-flex" class="flex-center"></div>
     </section>
 
     <img id="icon" src="images/pokedex.webp"/>

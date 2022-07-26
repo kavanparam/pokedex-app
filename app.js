@@ -1,58 +1,19 @@
-//For an initial Pokemon load -- depreciated
+//Scripts that run on page load
 function start(){
-    
-    const requestURL = "https://pokeapi.co/api/v2/pokemon/";
 
-    // //JavaScript promises
-    // fetch(requestURL+"snorlax").then((x) => x.json()).then((obj) => {
-    //     displayPokemon(obj);
-    // });
+     //Search on enter keypress
+     var input = document.getElementById("search-bar");
+     input.addEventListener("keypress", function(event) {
+     if (event.key === "Enter") {
+         event.preventDefault();
+         document.getElementById("search-button").click();
+     }
+     });
+
 }
 
 
 //Receives the JSON obj coming from PokeAPI
-function displayPokemon(obj){
-    // Name
-    const pokeName = obj.name;
-        
-    const pokemonNameMessage = "Pokemon Name: " + pokeName;
-    document.getElementById("name").innerHTML = pokemonNameMessage; //changes HTML code
-
-    // Image
-    const imageUrl = obj.sprites.front_default;
-    document.getElementById('image').src = imageUrl;
-
-
-    // Move List
-    const move1 = obj.moves[0].move.name;
-    const move2 = obj.moves[1].move.name;
-    const move3 = obj.moves[2].move.name;
-    const move4 = obj.moves[3].move.name;
-    document.getElementById("move-list").innerHTML = `<li>${move1}</li> <li>${move2}</li> <li>${move3}</li> <li>${move4}</li>`;
-
-    //Additional Views
-    //Load the section with visibility none on search button click
-    document.getElementById("views-container").style.display = "block";
-
-    // for(img in obj.sprites){
-    //     console.log(img);
-    //     console.log(Object.keys(img));
-    // }
-
-    //How can I iterate through sprite array and grab the image if it exists?
-
-    //Manually fetching the sprtites
-    document.getElementById('image2').src = obj.sprites.back_default;
-    document.getElementById('image3').src = obj.sprites.back_female;
-    document.getElementById('image4').src = obj.sprites.back_shiny;
-    document.getElementById('image5').src = obj.sprites.back_shiny_female;
-    document.getElementById('image6').src = obj.sprites.front_default;
-    document.getElementById('image7').src = obj.sprites.front_female;
-    document.getElementById('image8').src = obj.sprites.front_shiny;
-    document.getElementById('image9').src = obj.sprites.front_shiny_female;
-
-}
-
 function fetchPokemon(){
     const searchTerm = document.getElementById("search-bar").value;
 
@@ -62,3 +23,68 @@ function fetchPokemon(){
         displayPokemon(obj);
     });
 }
+
+//Interpret the received object
+function displayPokemon(obj){
+    document.getElementById("main-flex").style.display = "flex"; //Show main flex container
+
+    // Name
+    document.getElementById("name").innerHTML = "Pokemon Name: " + obj.name; 
+
+    // Image
+    document.getElementById('image').src = obj.sprites.front_default;
+
+
+    
+    // Move list
+    document.getElementById("move-list").innerHTML = "";
+    let moveList = "";
+
+    //If there are 10 or more moves
+    if(Object.keys(obj.moves).length>=10){
+        //Display the first 10 moves
+        for(let i=0; i<10; i++)
+            moveList += `<li>${obj.moves[i].move.name}</li>`;
+        // moveList += "<li onclick='fullMoveList()'>...</li>";
+        // fullMoveList(pokeObj);
+
+        moveList += "<li id='show-full-list' onclick='fullMoveList()'>...</li>";
+        // document.getElementById("show-full-list").addEventListener("click", fullMoveList);
+
+    }
+    //If there aren't 10 moves
+    else{
+        //Display all moves
+        for(i in obj.moves){
+            moveList += `<li>${obj.moves[i].move.name}</li`;
+        }
+    }
+    document.getElementById("move-list").innerHTML = moveList;
+
+
+    document.getElementById("views-container").style.display = "block";  //Show additional views section (on button click)
+
+    document.getElementById("image-flex").innerHTML = ""; //Resets images on new Pokemon search
+    for(img in obj.sprites){
+        if(typeof(obj.sprites[img]) === 'string'){
+            // console.log(obj.sprites[img]);
+            document.getElementById("image-flex").innerHTML += `<img src="${obj.sprites[img]}"/>`;
+        }
+    }
+
+}
+
+//How to display full move list of the current pokemon object?
+function fullMoveList(){
+
+    console.log(obj.moves[0].move.name);
+
+
+    // document.getElementById("move-list").innerHTML = "";
+    // let moveList = "";
+    // for(i in obj.moves){
+    //     moveList += `<li>${obj.moves[i].move.name}</li`;
+    // }
+    // document.getElementById("move-list").innerHTML = moveList;
+}
+
